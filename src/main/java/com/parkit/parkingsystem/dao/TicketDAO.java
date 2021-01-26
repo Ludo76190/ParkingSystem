@@ -19,6 +19,13 @@ public class TicketDAO {
 
     public DataBaseConfig dataBaseConfig = new DataBaseConfig();
 
+    /**
+     * save the ticket in the database.
+     *
+     * @param ticket ticket to save in the database
+     * @return true if ticket has been saved, false in case of exception
+     */
+
     public void saveTicket(Ticket ticket) {
         Connection con = null;
         try {
@@ -45,6 +52,13 @@ public class TicketDAO {
         }
     }
 
+
+    /**
+     * get ticket in the database for a specified vehicle registration number.
+     *
+     * @param vehicleRegNumber vehicle registration number of which we want to get the ticket
+     * @return if found, a Ticket object, else null
+     */
     public Ticket getTicket(String vehicleRegNumber) {
         Connection con = null;
         Ticket ticket = null;
@@ -79,6 +93,12 @@ public class TicketDAO {
         return ticket;
     }
 
+    /**
+     * update in the DB a given ticket
+     *
+     * @param ticket ticket we want to update in the DB
+     * @return true if ticket has been updated
+     */
     public boolean updateTicket(Ticket ticket) {
         Connection con = null;
         try {
@@ -102,6 +122,12 @@ public class TicketDAO {
         return false;
     }
 
+    /**
+     * check in the DB a vehicleRegNumber
+     *
+     * @param vehicleRegNumber vehicleRegNumber we want to check in the DB
+     * @return true if vehicleRegNumber is in the DB
+     */
     public boolean recurrentUser(String vehicleRegNumber) {
         Connection con = null;
         boolean recurrent = false;
