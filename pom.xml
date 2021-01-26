@@ -97,6 +97,20 @@
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>${spotbugs-maven-plugin.version}</version>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <dataFile>${project.build.directory}/jacoco-output/jacoco-merge-tests.exec</dataFile>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
         </plugins>
     </reporting>
 
@@ -166,6 +180,9 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>${maven-site-plugin.version}</version>
             </plugin>
+
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -211,6 +228,16 @@
                                     </includes>
                                 </fileSet>
                             </fileSets>
+                            <dataFile>${project.build.directory}/jacoco-output/jacoco-merge-tests.exec</dataFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report-merge</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
                             <dataFile>${project.build.directory}/jacoco-output/jacoco-merge-tests.exec</dataFile>
                         </configuration>
                     </execution>
