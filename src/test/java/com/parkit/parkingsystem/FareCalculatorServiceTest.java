@@ -107,7 +107,8 @@ public class FareCalculatorServiceTest {
         ticket.setOutTime(outTime);
         ticket.setParkingSpot(parkingSpot);
         fareCalculatorService.calculateFare(ticket);
-        assertEquals( (0.75 * Fare.CAR_RATE_PER_HOUR) , ticket.getPrice());
+        // calcul du prix arrondi à 2 chiffres
+        assertEquals((double) ((int)((0.75 * Fare.CAR_RATE_PER_HOUR)*100))/100, ticket.getPrice());
     }
 
     @Test
