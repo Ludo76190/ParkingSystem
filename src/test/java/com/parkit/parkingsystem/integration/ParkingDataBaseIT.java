@@ -96,4 +96,12 @@ public class ParkingDataBaseIT {
         assertNotNull(ticket.getOutTime());
     }
 
+    @Test
+    public void testRecurrentUser(){
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        parkingService.processIncomingVehicle();
+        parkingService.processExitingVehicle();
+        ticketDAO.recurrentUser("ABCDEF");;
+    }
+
 }

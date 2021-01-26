@@ -86,4 +86,7 @@ public class TicketDAO {
         }
         return false;
     }
+
+    public void recurrentUser(String abcdef) {
+    }
 }
