@@ -100,7 +100,12 @@ public class ParkingDataBaseIT {
     public void testRecurrentUser(){
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
-        parkingService.processExitingVehicle();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+            parkingService.processExitingVehicle();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ticketDAO.recurrentUser("ABCDEF");;
     }
 
