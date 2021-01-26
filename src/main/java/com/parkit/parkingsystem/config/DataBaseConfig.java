@@ -36,7 +36,6 @@ public class DataBaseConfig {
      * @return a connection
      * @throws ClassNotFoundException if com.mysql.cj.jdbc.Driver is not found
      * @throws SQLException if exception while executing SQL instructions
-     * @throws IOException if exception while reading the db.properties file
      */
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         logger.info("Create DB connection");

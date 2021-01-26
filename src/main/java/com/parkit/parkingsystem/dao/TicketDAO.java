@@ -23,7 +23,6 @@ public class TicketDAO {
      * save the ticket in the database.
      *
      * @param ticket ticket to save in the database
-     * @return true if ticket has been saved, false in case of exception
      */
 
     public void saveTicket(Ticket ticket) {
@@ -44,7 +43,6 @@ public class TicketDAO {
             } finally {
                 dataBaseConfig.closePreparedStatement(ps);
             }
-            //return ps.execute();
         } catch (Exception ex) {
             logger.error("Error fetching next available slot", ex);
         } finally {
