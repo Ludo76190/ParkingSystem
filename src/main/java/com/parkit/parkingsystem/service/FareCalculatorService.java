@@ -20,7 +20,7 @@ public class FareCalculatorService {
         double inHour = ticket.getInTime().getTime();
         double outHour = ticket.getOutTime().getTime();
 
-        //TODO: Some tests are failing here. Need to check if this logic is correct
+        // TODO: Some tests are failing here. Need to check if this logic is correct
         // diviser duration par 60.0*60*1000 pour convertir en heure
         // il faut coder 60.0 dans la division pour avoir le type double
         double duration = (outHour - inHour)/(60.0*60*1000);

@@ -106,7 +106,8 @@ public class ParkingDataBaseIT {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ticketDAO.recurrentUser("ABCDEF");;
+        assertTrue(ticketDAO.recurrentUser("ABCDEF"));
+
     }
 
 }
