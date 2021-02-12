@@ -55,7 +55,7 @@ public class ParkingService {
         }
     }
 
-    private String getVehichleRegNumber() throws Exception {
+    private String getVehichleRegNumber() {
         System.out.println("Please type the vehicle registration number and press enter key");
         return inputReaderUtil.readVehicleRegistrationNumber();
     }
@@ -107,6 +107,7 @@ public class ParkingService {
             fareCalculatorService.calculateFare(ticket);
             if(ticketDAO.recurrentUser(vehicleRegNumber)) {
                 ticket.setPrice(ticket.getPrice()* Fare.RECURRENT_USER);
+                System.out.println("Welcome back! As a recurring user of our parking lot, you'll benefit from a " + (int)(((1-Fare.RECURRENT_USER)*100)*10)/10 + "% discount.");
             }
             if(ticketDAO.updateTicket(ticket)) {
                 ParkingSpot parkingSpot = ticket.getParkingSpot();
